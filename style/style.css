@@ -1,0 +1,292 @@
+/* ===== Основные параметры ===== */
+
+body {
+  background: #F1F2E1;
+  font-size: 80%;
+  font-family: Arial;
+}
+
+#main-content {
+  background: #FFF;
+  background-image: url(http://scientific-alliance.wdfiles.com/local--files/admin%3Amanage/Ground);
+  background-repeat: repeat-x;
+  color: #555;
+  padding: 0 30px 3px;
+  margin: 0 0 -15px 216px;
+}
+
+/* #page-content {
+  width: 863px;
+} */
+
+#page-title {
+  font-family: Verdana;
+  padding-bottom: 10px;
+}
+
+a {
+  color: #B01;
+  text-decoration: none;
+}
+
+a.newpage {
+  color: #79B;
+  text-decoration: none;
+}
+
+a:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+blockquote {
+  border: solid 1px #BBB;
+  background: #EEE;
+}
+
+h3 {
+  font-family: Arial;
+  font-size: 125%;
+  margin: 25px 0 -5px;
+}
+
+hr {
+  margin: 1em 0
+}
+
+#edit-page-textarea {
+  font-family: Arial;
+  font-size: 100%;
+  padding-left: 3px;
+}
+
+#edit-section-content {
+  border: 0;
+  padding: 0;
+}
+
+.collapsible-block {
+  margin: 12px 0 0
+}
+
+.collapsible-block-folded::before {
+  content: '❑';
+  color:#555;
+  padding-right: 0.5em;
+}
+
+.collapsible-block-unfolded>.collapsible-block-unfolded-link::before {
+  content: '❒';
+  color:#555;
+  padding-right: 0.5em;
+}.
+
+join-box a {
+  background: #FFF;
+  color: #555;
+  font-size: 500%;
+  margin-top: -31px;
+}
+
+/* ===== Логотип сайта ===== */
+
+#header {
+  border-bottom: 2px solid #222;
+  background: #000 url(/local--files/admin:manage/logo) no-repeat; 
+  height: 7em;
+}
+
+#header h1 {
+  color: #F1F2E1;
+  font-size: 220%;
+}
+
+#header h1 a, #header h1 a:hover {
+  display: block;
+  background: transparent url(http://scientific-alliance.wikidot.com) no-repeat;
+  color: #F1F2E1;
+  text-decoration: none;
+  text-indent: 127px;
+  margin-left: 0px;
+  height: 80px;
+  width: 700px;
+}
+
+#header h2 {
+  color: #C9CAB9;
+  font-size: 130%;
+  margin: -39px 132px;
+}
+
+#header #login-status, #login-status a {
+  color: #EEE;
+}
+
+#account-options a, #account-options, a#account-topbutton {
+  color: #222;
+  font-weight: normal;
+}
+
+/* ===== Левое меню ===== */
+
+#side-bar {
+  padding-top: 0px;
+  width: 180px;
+}
+
+.symbols {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: solid 15px #222;
+  background: #FFF;
+  padding-right: -30px;
+  width: 100%;
+}
+
+/* ===== Верхнее меню ===== */
+
+#search-top-box {
+  text-align: right
+}
+
+#top-bar {
+  top: 70px;
+  background: #555;
+  color: #FFF;
+  font-size: 95%;
+  margin: auto -1em -2px;
+  width: 100%;
+}
+
+#top-bar ul {
+  float: right;
+  border: 0 !important;
+  padding: 0 100px;
+}
+
+#top-bar ul li {
+  border: solid #555;
+  border-width: 1px 1px 0;
+}
+
+#top-bar ul li ul {
+  margin-left: -1px;
+  width: auto;
+}
+
+#top-bar ul li a {
+  display: block;
+  color: #FFF;
+  text-decoration: none;
+}
+
+#top-bar ul li.sfhover a {
+  border-bottom: solid 1px #555;
+  background: #F1F2E1;
+  color: #555;
+  padding: 2px 1em 3px;
+  margin-top: -1px;
+}
+
+#top-bar ul li.sfhover a:hover, #top-bar ul li:hover a:hover {
+  background: #FFF;
+  text-decoration: none;
+}
+
+/* ===== Вкладки ===== */
+
+.yui-navset .yui-content {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.yui-nav {
+  border-width: 0 !important;
+}
+
+.yui-navset .yui-nav a {
+  border: solid 1px #555;
+  background: transparent;
+  color: #555;
+  font-size: 90%;
+  padding: 1px;
+}
+
+.yui-navset .yui-nav .selected a {
+  border-color: #555;
+  background: #C9CAB9 !important;
+  color: #555 !important;
+}
+
+.yui-navset .yui-nav a:hover {
+  background: #F1F2E1;
+}
+
+.yui-navset .yui-nav li {
+  margin: 0 1px !important;
+}
+
+.yui-navset .yui-nav li a em {
+  border: none;
+  padding: 5px 10px !important;
+  margin: 0;
+}
+
+/* ===== Дивные стили ===== */
+
+.rimg {
+  float: right;
+  border: 1px solid;
+  background: #EEE;
+  font: Helvetica 9pt;
+  text-align: center;
+  margin: 15px auto 10px 10px;
+}
+
+.rimg span {
+  display: block;
+  margin: 2px;
+}
+
+.hide {
+  background: #555;
+}
+
+.list {
+  line-height: 18px
+}
+
+.list blockquote {
+padding: 0
+}
+
+.list table.wiki-content-table {
+margin: 0 0 -1px;
+width: 100%;
+}
+
+.list table.wiki-content-table td {
+border: solid 1px #BBB;
+border-right: 0;
+}
+
+.list table.wiki-content-table th {
+border: solid 1px #BBB;
+font-weight: normal;
+padding: 0 0.3em;
+width: 5em;
+}
+
+.menu {
+  line-height: 22px
+}
+
+/* ===== Полоса в нижней части страницы ===== */
+
+#footer {
+  font-size: 0;
+  height: 20px;
+}

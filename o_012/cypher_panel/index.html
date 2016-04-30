@@ -1,0 +1,45 @@
+<!DOCTYPE html><html><head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <link href="../../style/wd-style.css" rel="stylesheet" media="all" />
+  <link href="../../style/style.css" rel="stylesheet" media="all" />
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+  <style type="text/css">
+  .cypher_input {
+        color: #555;
+        padding: 1px 2px 2px;
+        width: 99%;
+  }
+
+  .cyphertext_paragraph {
+  /*Здесь можно раскрасить расшифрованный текст*/
+  }
+  </style>
+
+  <title>Decypher</title>
+
+</head>
+
+<body>
+  <div class="cypher_zone"></div>
+
+  <script type="text/javascript" src="main.min.js"></script>
+
+  <script type="text/javascript">
+    (function($) {
+        var cypher_data = {
+            "cypher-blocks": [{
+                "cypher-text": "УУУ",
+                "sha512": "4590462399741725927a5d3f60cd2525babef41da1683ffd6dd6a2c5f8db97486330c7201811a83ae91ac767518ff42541ddcf863f93b8e7983d2b5c747646db"
+            }],
+            "hiding": true
+        };
+
+        $('.cypher_zone').cypher_panel(cypher_data);
+    })(jQuery);
+  </script>
+</body>
+
+</html>
