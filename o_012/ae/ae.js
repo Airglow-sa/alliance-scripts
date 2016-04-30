@@ -64,16 +64,5 @@ $(function() {
             this.new_reset_time();
         }
     }
-
-    var term_proto = new Term_proto({
-        'max_len': 10,
-        'min_reset_time': 5000,
-        'max_reset_time': 15000,
-        'answers': [
-            'Вы нашли разгадку объекта 012, но не помните её',
-            'Смысл объекта 012 ускользает от вас',
-            'Объект стёр все записи о себе'
-        ]
-    });
-    $('body').append(term_proto.$body);
+    window.Term_proto = Term_proto;
 });
