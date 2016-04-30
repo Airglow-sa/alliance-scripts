@@ -1,0 +1,40 @@
+.term_proto {
+    width: 60%;
+}
+.term_proto textarea {
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.term_proto select {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.term_proto textarea {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+}
+span.now {
+    float: right;
+    /*
+    border-radius: 2px;
+    border: 1px solid #005;
+    color: white;
+    */
+}
+.recs {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0 10px 0 10px;
+}
+.recs p {
+    /*border-bottom: 1px solid #aaa;*/
+    padding-bottom: 10px;
+}

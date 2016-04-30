@@ -1,0 +1,2 @@
+cat sha512.js Vernam.js decypher_panel.js > main.js
+uglifyjs main.js -o main.min.js
