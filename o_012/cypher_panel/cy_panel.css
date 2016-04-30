@@ -1,0 +1,11 @@
+.cypher_input {
+      color: #555;
+      padding: 1px 2px 2px;
+      width: 99%;
+}
+
+.cyphertext_paragraph {
+    /*
+    Здесь можно раскрасить расшифрованный текст
+    */
+}
