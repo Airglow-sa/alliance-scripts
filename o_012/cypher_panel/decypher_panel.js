@@ -19,7 +19,7 @@
             this.input_field.addClass('cypher_input').attr("placeholder", "Введите ключ шифра и нажмите enter.\nShift+Enter переносит строку.");
 
             this.input_field.keypress(function (e) {
-              if (e.which == 13 && !e.ctrlKey && !e.shiftKey) {
+              if (e.which == 13 && !e.shiftKey) {
                 $.fn.cypher_panel.decypher(self);
                 return false;
               }
