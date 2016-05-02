@@ -68,7 +68,7 @@ var decrypt = function(key, ciphertext) {
 
             this.input_field.keydown(function (e) {
               // Enter or ctrl-enter w/o shift
-              if ((event.keyCode == 10 || event.keyCode == 13) && !e.shiftKey) {
+              if ((e.keyCode == 10 || e.keyCode == 13) && !e.shiftKey) {
                 $.fn.cypher_panel.decypher(self);
                 return false;
               }
