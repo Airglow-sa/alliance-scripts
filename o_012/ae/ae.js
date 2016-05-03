@@ -17,9 +17,8 @@ $(function() {
 
         this.pre_text = options.pre_text;
 
-        this.$ta = $('<textarea>');
+        this.set_ta();
         this.$body.append(
-            this.$ta,
             $("<div>").addClass('recs').hide()
         );
 
@@ -41,6 +40,13 @@ $(function() {
             this.new_reset_time();
             this.reset();
         }
+    }
+
+    Term_proto.prototype.set_ta = function() {
+        this.$body.find('textarea').remove();
+        var $ta = $('<textarea>');
+        this.$ta = $ta;
+        this.$body.prepend(this.$ta);
     }
 
     Term_proto.prototype.reset = function() {
