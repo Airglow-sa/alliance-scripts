@@ -8,32 +8,37 @@ $(function() {
 
     var Term_proto = function(options) {
         var self = this;
+        // Set body div, add centering
         this.$body = $('<div class="term_proto"></div>');
+        this.$body.css('margin', '0 auto');
+        // Set further options
         this.answers = options.answers;
         this.min_reset_time = options.min_reset_time;
         this.max_reset_time = options.max_reset_time;
-        this.new_reset_time();
         this.max_len = options.max_len;
-
         this.pre_text = options.pre_text;
-
+        // Set time until reset once
+        this.new_reset_time();
+        // Reset textarea
         this.set_ta();
+        // Append records block
         this.$body.append(
             $("<div>").addClass('recs').hide()
         );
-
-        // Проверка времени
+        // Check time
         this.iter = window.setInterval(function() {
             self.tick();
         }, this.min_reset_time);
-
+        // Return object
         return this;
     };
 
+    // Set new time until the reset
     Term_proto.prototype.new_reset_time = function() {
         this.time_until_reset = Math.round(Math.random() * (3000 - 500)) + 500;
     }
 
+    // Update time until reset, check if event should start and possibly execute it
     Term_proto.prototype.tick = function() {
         this.time_until_reset = this.time_until_reset - this.min_reset_time;
         if (this.time_until_reset <= 0) {
@@ -42,6 +47,7 @@ $(function() {
         }
     }
 
+    // Reset textarea
     Term_proto.prototype.set_ta = function() {
         this.$body.find('textarea').remove();
         var $ta = $('<textarea>');
@@ -49,10 +55,12 @@ $(function() {
         this.$body.prepend(this.$ta);
     }
 
+    // Reset the value
     Term_proto.prototype.reset = function() {
         if (this.$ta.val().length > 0) {
             // Reset textarea
-            this.$ta.val('');
+            this.set_ta();
+            this.$ta.focus();
             // Show records
             this.$body.find('.recs').show();
             // Add record
