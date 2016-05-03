@@ -33,9 +33,12 @@ span.now {
     */
 }
 .recs {
-    padding: 0 10px 0 10px;
+    /*padding: 0 10px 0 10px;*/
+    padding: 10px 0 10px 0;
 }
 .recs p {
     /*border-bottom: 1px solid #aaa;*/
     padding-bottom: 10px;
+    width: 95%;
+    margin: 0 auto;
 }

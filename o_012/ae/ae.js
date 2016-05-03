@@ -10,7 +10,10 @@ $(function() {
         var self = this;
         // Set body div, add centering
         this.$body = $('<div class="term_proto"></div>');
-        this.$body.css('margin', '0 auto');
+        // Centering
+        if (options.hasOwnProperty('center') && options.center==true) {
+            this.$body.css('margin', '0 auto');
+        }
         // Set further options
         this.answers = options.answers;
         this.min_reset_time = options.min_reset_time;
