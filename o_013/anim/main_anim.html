@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://scientific-alliance.wdfiles.com/local--theme/alliance/style.css">
+
+  <style type="text/css">
+  /* Для rimg span был задан в виде блока, но обычно он не является блочным элементом. Чиним. */
+  .wireCell span {
+      display: inline;
+      margin: 0;
+  }
+  </style>
+
+  <title></title>
+</head>
+
+<body>
+
+<div class="rimg" style="margin-top: 10px; margin-left: 10px;">
+    <div style="background: #C9CAB9; text-align: center; padding: 50px 0; height: 99px; width: 300px">
+        <div style="text-align: center; margin-top: -3px" class="wireCell"></div>
+    </div>
+    <p><span style="margin: -10px 0 -11px">Подпись под картиночкой</span></p>
+</div>
+
+<script type="text/javascript" src="ta_v22.js"></script>
+
+<script type='text/javascript'>//<![CDATA[
+    $(function(){
+        // Раскадровка
+        var frame_list = [
+            "Проверка наличия контрмемагента...",
+            {
+                "c": "define_progressbar",
+                "len": 25,
+            },
+            {"c": "change_global_delay", "delay_ms": 320},
+            {"c": "step_delay", "cnt": 10},
+            {"c": "reset_global_delay"},
+            {"c": "step_delay", "cnt": 15},
+            {"c": "rst"},
+            "<span>Не удалось связаться с когнисхемой.<br/><br/>Наличие контрмема не подтверждено.<br/><br/>Изображение не может быть показано.</span>"
+        ];
+
+        // Настройка
+        var NTA = new window.Term_animation({
+          $parent: $('.wireCell'),
+          pause_between_steps: 40,
+          frames: frame_list,
+          default_mode: "print"
+        });
+
+        // Пуск
+        NTA.start();
+    });
+//]]>
+</script>
+
+</body>
+</html>

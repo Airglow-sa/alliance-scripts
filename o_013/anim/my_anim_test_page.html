@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://scientific-alliance.wdfiles.com/local--theme/alliance/style.css">
+
+  <style type="text/css">
+  /* Для rimg span был задан в виде блока, но обычно он не является блочным элементом. Чиним. */
+  .wireCell span {
+      display: inline;
+      margin: 0;
+  }
+  </style>
+
+  <title></title>
+</head>
+
+<body>
+
+<div class="rimg" style="margin-top: 10px; margin-left: 10px;">
+    <div style="background: #C9CAB9; text-align: center; padding: 50px 0; height: 99px; width: 300px">
+        <div style="text-align: center; margin-top: -3px" class="wireCell"></div>
+    </div>
+    <p><span style="margin: -10px 0 -11px">Подпись под картиночкой</span></p>
+</div>
+
+<script type="text/javascript" src="ta_v22.js"></script>
+
+<script type='text/javascript'>//<![CDATA[
+    $(function(){
+        // Раскадровка
+        var frame_list = [
+            {"c": "type", "txt": "Итак, долгожданная демка.", "var_name": "demo_title_1",},
+            {"c": "step_delay", "cnt": 10},
+            {"c": "type", "txt": "С ней вышло много проблем.", "var_name": "demo_title_1",},
+            {"c": "step_delay", "cnt": 10},
+            {"c": "type", "txt": "Надеюсь, она стоит того.", "var_name": "demo_title_1",},
+            {"c": "step_delay", "cnt": 10},
+            "Начинаем.",
+            {
+                "c": "define_progressbar",
+                "len": 25,
+            },
+            {"c": "step_delay", "cnt": 25},
+            {"c": "rst"},
+            //
+            "Перезапись параграфа",
+            {"c": "print", "txt": "3", "var_name": "demo_paragraph_a"},
+            {"c": "step_delay", "cnt": 5},
+            {"c": "print", "txt": "2", "var_name": "demo_paragraph_a"},
+            {"c": "step_delay", "cnt": 5},
+            {"c": "print", "txt": "1", "var_name": "demo_paragraph_a"},
+            {"c": "step_delay", "cnt": 5},
+            {"c": "print", "txt": "0", "var_name": "demo_paragraph_a"},
+            {"c": "step_delay", "cnt": 5},
+            {"c": "rst"},
+            //
+            [
+                "Простая задержка на увеличенное время",
+                {
+                    "var_name": "demo_progressbar_2",
+                    "c": "define_progressbar",
+                    "len": 25
+                },
+            ],
+            {"c": "step_delay", "cnt": 85},
+            {"c": "rst"},
+            ///////////////
+            "Регулировка скорости progressbar'a",
+            ///////////////
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_3",
+                "len": 5,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 5, "step": 0.25},
+                },
+            },
+            {"c": "step_delay", "cnt": 50},
+            {"c": "rst"},
+            //
+            "Регулировка цветов progressbar'a",
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_4",
+                "len": 30,
+                "pb_opts": {
+                    "style": {
+                        'empty_start': "<span style=\"color: #ffc555;\">",
+                        'empty_end': "</span>",
+                        'fill_start': "<span style=\"color: #ff9155;\">",
+                        'fill_end': "</span>",
+                        'fill_char': "█"
+                    },
+                    "replace_range": {"start": 0, "end": 30, "step": 0.5},
+                },
+            },
+            {"c": "step_delay", "cnt": 80},
+            {"c": "rst"},
+            //
+            "Параллельная работа нескольких progressbar'ов",
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_5.0",
+                "len": 30,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 30, "step": 0.5},
+                },
+            },
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_5.1",
+                "len": 30,
+                "pb_opts": {
+                    "replace_range": {"start": 30, "end": 0, "step": 0.5},
+                },
+            },
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_5.2",
+                "len": 30,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 30, "step": 0.5},
+                },
+            },
+            {"c": "step_delay", "cnt": 80},
+            {"c": "rst"},
+            //
+            "Перехват состояния progressbar'a",
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_6",
+                "len": 10,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 10, "step": 0.5},
+                },
+            },
+            {"c": "step_delay", "cnt": 10},
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_6",
+                "len": 10,
+                "pb_opts": {
+                    "replace_range": {"start": 10, "end": 0, "step": 0.5},
+                    "style": {
+                        'empty_start': "<span style=\"color: #ffc555;\">",
+                        'empty_end': "</span>",
+                        'fill_start': "<span style=\"color: #ff9155;\">",
+                        'fill_end': "</span>",
+                        'fill_char': "█"
+                    },
+                },
+            },
+            {"c": "step_delay", "cnt": 10},
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_6",
+                "len": 10,
+                "pb_opts": {
+                    "replace_range": {"start": 5, "end": 10, "step": 1},
+                    "style": {
+                        'empty_start': "<span style=\"color: #ffc555;\">",
+                        'empty_end': "</span>",
+                        'fill_start': "<span style=\"color: #5591ff;\">",
+                        'fill_end': "</span>",
+                        'fill_char': "█"
+                    },
+                },
+            },
+            {"c": "step_delay", "cnt": 15},
+            {"c": "rst"},
+
+            {"c": "print", "txt": "Перенастройка глобального таймера", "var_name": "demo_paragraph_gtimer"},
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_7.0",
+                "len": 10,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 10, "step": 1},
+                },
+            },
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_7.1",
+                "len": 20,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 20, "step": 1},
+                },
+            },
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_7.2",
+                "len": 30,
+                "pb_opts": {
+                    "replace_range": {"start": 0, "end": 30, "step": 1},
+                },
+            },
+            {"c": "change_global_delay", "delay_ms": 160},
+            {"c": "step_delay", "cnt": 10},
+            {"c": "change_global_delay", "delay_ms": 80},
+            {"c": "step_delay", "cnt": 10},
+            {"c": "change_global_delay", "delay_ms": 60},
+            {"c": "step_delay", "cnt": 20},
+            {"c": "reset_global_delay"},
+
+            {"c": "ignore_delay_between_frames"},
+            {
+                "c": "define_progressbar",
+                "var_name": "demo_progressbar_7.0",
+                "len": 30,
+                "pb_opts": {
+                    "replace_range": {"start": 10, "end": 30, "step": 1},
+                },
+                "intercept": true
+            },
+            {"c": "step_delay", "cnt": 20},
+            {"c": "replace_paragraph", "txt": "Конец", "var_name": "demo_progressbar_7.1"},
+            {"c": "restore_delay_between_frames"}
+        ];
+
+        // Настройка
+        var NTA = new window.Term_animation({
+          $parent: $('.wireCell'),
+          pause_between_steps: 40,
+          frames: frame_list,
+          default_mode: "print"
+        });
+
+        // Пуск
+        NTA.start();
+    });
+//]]>
+</script>
+
+</body>
+</html>
