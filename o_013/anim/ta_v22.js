@@ -23,7 +23,7 @@ var range = function(start, end, step) {
         throw TypeError("Start and end arguments must be of same type.");
     }
     if (typeof step == "undefined") {
-        step = 1
+        step = 1;
     }
     if (end < start) {
         step = -step;
@@ -172,10 +172,7 @@ function Term_animation(options) {
             progressbarOptions.style
         );
         //
-        //debugger;
         self.paragraphs[pbId].innerHTML = htmlValue;
-        //debugger;
-        $(self.paragraphs[pbId]).attr('data-pbid', pbId);
         // Delete the descriptor
         if ((progressbarOptions.range.length-rId)===0) {
             delete self.pbdscs[pbId];
@@ -198,6 +195,7 @@ function Term_animation(options) {
         var nextFrame = false;
         var resetFrameData = false;
         var mode = "";
+        var currentParagraph, append, newParagraph, progressbarOptions;
 
         if (currentFrame.c) {
             mode = currentFrame.c;
@@ -222,8 +220,6 @@ function Term_animation(options) {
             resetFrameData = true;
         }
         else if (mode == "print") {
-            var currentParagraph, append;
-
             if (Object.prototype.toString.call(currentFrame) === "[object Object]" && currentFrame.var_name) {
                 if (self.paragraphs.hasOwnProperty(currentFrame.var_name)) {
                     // Find the paragraph, set by the variable
@@ -262,7 +258,6 @@ function Term_animation(options) {
             nextFrame = self.frameId < max_step;
         }
         else if (mode == "type") {
-            var currentParagraph, append;
             // Init paragraph
             // Check for the beginning of typing
             if (self.typingCharId === 0) {
@@ -344,7 +339,6 @@ function Term_animation(options) {
             nextFrame = self.frameId < max_step;
         }
         else if (mode == "define_progressbar") {
-            var newParagraph, progressbarOptions, append;
             progressbarOptions = currentFrame.pb_opts || {};
             progressbarOptions.len = currentFrame.len;
 
@@ -472,7 +466,7 @@ function Term_animation(options) {
         // Process frame if it exists
         if (currentFrame) {
             // Reset the pause
-            if (currentFrame.c!="type" && true==self.ignoreDelayBetweenFrames) {
+            if (currentFrame.c!="type" && true===self.ignoreDelayBetweenFrames) {
                 this.currentFramePauseTime = 0;
             }
             action = this.action(self, max_step, currentFrame);

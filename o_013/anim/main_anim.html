@@ -32,17 +32,20 @@
     $(function(){
         // Раскадровка
         var frame_list = [
-            "Проверка наличия контрмемагента...",
-            {
-                "c": "define_progressbar",
-                "len": 25,
-            },
+            {"c": "print", "txt": "Подключение к удалённому серверу", "var_name": "013_paragraph_ttl"},
+            {"c": "define_progressbar", "len": 5, "var_name": "013_bar_1"},
+            {"c": "step_delay", "cnt": 15},
+            {"c": "print", "txt": "Проверка наличия контрмемагента...", "var_name": "013_paragraph_ttl"},
+            {"c": "define_progressbar", "len": 25, "var_name": "013_bar_1"},
             {"c": "change_global_delay", "delay_ms": 320},
             {"c": "step_delay", "cnt": 10},
+            {"c": "print", "txt": "Не удалось связаться с когнисхемой.", "var_name": "output_1"},
             {"c": "reset_global_delay"},
-            {"c": "step_delay", "cnt": 15},
-            {"c": "rst"},
-            "<span>Не удалось связаться с когнисхемой.<br/><br/>Наличие контрмема не подтверждено.<br/><br/>Изображение не может быть показано.</span>"
+            {"c": "step_delay", "cnt": 4},
+            {"c": "print", "txt": "Наличие контрмема не подтверждено.", "var_name": "output_2"},
+            {"c": "print", "txt": "Изображение не может быть показано.", "var_name": "output_3"},
+            {"c": "step_delay", "cnt": 2},
+            {"c": "remove_paragraph", "var_name": "013_bar_1"}
         ];
 
         // Настройка
