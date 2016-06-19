@@ -45,6 +45,17 @@
             },
             {"c": "step_delay", "cnt": 25},
             {"c": "rst"},
+
+            //
+            {"c": "print", "txt": "Смена оформления фона.", "var_name": "demo_title_2",},
+            {"c": "step_delay", "cnt": 15},
+            {"c": "set_container_style_attribute", "attr": "background-color", "val": "#ccc"},
+            {"c": "step_delay", "cnt": 15},
+            {"c": "print", "txt": "Сброс стиля.", "var_name": "demo_title_2",},
+            {"c": "reset_container_style"},
+            {"c": "step_delay", "cnt": 15},
+            {"c": "rst"},
+
             //
             "Перезапись параграфа",
             {"c": "print", "txt": "3", "var_name": "demo_paragraph_a"},
@@ -223,6 +234,7 @@
         // Настройка
         var NTA = new window.Term_animation({
           $parent: $('.wireCell'),
+          $container: $('.wireCell').parent(),
           pause_between_steps: 40,
           frames: frame_list,
           default_mode: "print"

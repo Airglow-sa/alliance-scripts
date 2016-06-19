@@ -89,6 +89,16 @@ function Term_animation(options) {
     // Progressbar descriptors
     this.pbdscs = {};
 
+    // Container to set the style
+    if (this.options.hasOwnProperty('$container')) {
+        this.$container = this.options.$container;
+    }
+    else {
+        this.$container = this.options.$parent[0];
+    }
+    // Save default style value
+    this.container_default_style = this.$container[0].style.cssText;
+
     // Steps left to pass
     this.passStepsLeft = 0;
     // Is delayed?
@@ -218,6 +228,25 @@ function Term_animation(options) {
             nextStep = self.frameId < max_step;
             nextFrame = self.frameId < max_step;
             resetFrameData = true;
+        }
+        else if (mode == "reset_container_style") {
+            self.$container[0].style = self.container_default_style;
+            nextStep = self.frameId < max_step;
+            nextFrame = self.frameId < max_step;
+        }
+        else if (mode == "set_container_style") {
+            if (currentFrame.hasOwnProperty('style')) {
+                self.$container[0].style = currentFrame.style;
+            }
+            nextStep = self.frameId < max_step;
+            nextFrame = self.frameId < max_step;
+        }
+        else if (mode == "set_container_style_attribute") {
+            if (currentFrame.hasOwnProperty('attr') && currentFrame.hasOwnProperty('val')) {
+                self.$container[0].style[currentFrame.attr] = currentFrame.val;
+            }
+            nextStep = self.frameId < max_step;
+            nextFrame = self.frameId < max_step;
         }
         else if (mode == "print") {
             if (Object.prototype.toString.call(currentFrame) === "[object Object]" && currentFrame.var_name) {
