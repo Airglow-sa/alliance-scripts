@@ -94,7 +94,7 @@ function Term_animation(options) {
         this.$container = this.options.$container;
     }
     else {
-        this.$container = this.options.$parent[0];
+        this.$container = this.options.$parent;
     }
     // Save default style value
     this.container_default_style = this.$container[0].style.cssText;
