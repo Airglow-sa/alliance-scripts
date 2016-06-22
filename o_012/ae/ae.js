@@ -6,6 +6,15 @@ $(function() {
         }
     }
 
+    // https://gist.github.com/realmyst/1262561
+    // http://htmler.ru/2013/11/22/sklonenie-chislitelnah-na-javascript/
+    // declOfNum(N,['арбуз','арбуза','арбузов']);
+    function declOfNum(number, titles)
+    {
+        cases = [2, 0, 1, 1, 1, 2];
+        return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];
+    }
+
     var Term_proto = function(options) {
         var self = this;
         // Set body div, add centering
@@ -61,7 +70,9 @@ $(function() {
 
     // Reset the value
     Term_proto.prototype.reset = function() {
-        if (this.$ta.val().length > 0) {
+        // Length of the textarea
+        var ta_length = this.$ta.val().length;
+        if (ta_length > 0) {
             // Reset textarea
             this.set_ta();
             this.$ta.focus();
@@ -71,6 +82,11 @@ $(function() {
             var now = $('<span>').addClass('now').text(Math.floor(Date.now() / 1000));
             now.attr('title', 'время записи');
             var item = this.answers[Math.floor(Math.random() * this.answers.length)];
+            item = item.replace("%il", ""+ta_length);
+            item = item.replace(
+                "%scs",
+                declOfNum(ta_length, ['символа','символов','символов'])
+            );
             var text = $('<span>').addClass('status').text(item);
             var paragraph = $('<p>');
             paragraph.append(now, text);
