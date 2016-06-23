@@ -6,11 +6,14 @@ $(function() {
         }
     }
 
+    function randomIntBetween(min, max) {
+        return( Math.floor(Math.random() * (max - min + 1)) + min );
+    }
+
     // https://gist.github.com/realmyst/1262561
     // http://htmler.ru/2013/11/22/sklonenie-chislitelnah-na-javascript/
     // declOfNum(N,['арбуз','арбуза','арбузов']);
-    function declOfNum(number, titles)
-    {
+    function declOfNum(number, titles) {
         cases = [2, 0, 1, 1, 1, 2];
         return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];
     }
@@ -30,6 +33,10 @@ $(function() {
         this.max_reset_time = options.max_reset_time;
         this.max_len = options.max_len;
         this.pre_text = options.pre_text;
+        //
+        if (options.hasOwnProperty('erase_range')) {
+            this.erase_range = options.erase_range;
+        }
         // Set time until reset once
         this.new_reset_time();
         // Reset textarea
@@ -71,8 +78,15 @@ $(function() {
     // Reset the value
     Term_proto.prototype.reset = function() {
         // Length of the textarea
-        var ta_length = this.$ta.val().length;
-        if (ta_length > 0) {
+        var ta_length;
+        if (this.erase_range) {
+            ta_length = randomIntBetween(this.erase_range.min, this.erase_range.max);
+        }
+        else {
+            ta_length = randomIntBetween(1, this.$ta.val().length);
+        }
+
+        if (this.$ta.val().length > 0) {
             // Reset textarea
             this.set_ta();
             this.$ta.focus();

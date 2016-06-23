@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Automatically erased text</title>
+
+    <link href="../../style/wd-style.css" rel="stylesheet" media="all" />
+    <link href="../../style/style.css" rel="stylesheet" media="all" />
+    <link href="ae.css" rel="stylesheet" media="all" />
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+
+<body>
+    <p class="term_panel"></p>
+    <script type="text/javascript" src="ae.js"></script>
+    <script>
+        $(function() {
+            var term_proto = new Term_proto({
+                'max_len': 10,
+                'min_reset_time': 5000,
+                'max_reset_time': 15000,
+                'center': true,
+                'width': '63%',
+                'answers': [
+                    "Замечено спонтанное исчезновение %il %scs, текстовое поле очищено"
+                    //
+                    // 'Вы нашли разгадку объекта 012, но не помните её',
+                    // 'Смысл объекта 012 ускользает от вас',
+                    // 'Объект стёр все записи о себе'
+                ]
+            });
+            $('body').append(term_proto.$body);
+        });
+    </script>
+</body>
+
+</html>
