@@ -476,6 +476,21 @@ function Term_animation(options) {
             nextFrame = self.passStepsLeft <= 0;
             resetFrameData = self.passStepsLeft <= 0;
         }
+        else if (mode == "image") {
+            var img = $.parseHTML("<img>")[0];
+            img.src = currentFrame.src;
+
+            self.options.$parent.html('');
+            self.paragraphs = [];
+          
+            if (true===append) {
+                // Append the paragraph
+                self.options.$parent[0].appendChild(img);
+            }
+
+            nextStep = self.frameId < max_step;
+            nextFrame = self.frameId < max_step;
+        }
 
         return({
             'nextStep': nextStep,
